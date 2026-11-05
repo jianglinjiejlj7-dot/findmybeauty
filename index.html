@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Findmybeauty · 发现适合你的色彩</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            page: "#FFFFFF",
+            "surface-soft": "#FFF8FB",
+            "blush-light": "#FBE8F0",
+            "blush-accent": "#D98EAB",
+            primary: "#7A284F",
+            "primary-hover": "#641F40",
+            ink: "#282329",
+            muted: "#6C626A",
+            line: "#E8DFE4",
+            control: "#9A8B94",
+          },
+          fontFamily: {
+            sans: ['"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', "sans-serif"],
+            serif: ["Georgia", "Times New Roman", "serif"],
+          },
+          maxWidth: { content: "1200px" },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background: #FFFFFF;
+      color: #282329;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+    .glow-pink {
+      background: radial-gradient(ellipse 70% 60% at 70% 30%, rgba(235, 170, 198, 0.24), transparent 70%);
+    }
+    .btn-primary, .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 16px;
+      line-height: 1.25;
+      transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+    .btn-primary { background: #7A284F; color: #fff; }
+    .btn-primary:hover { background: #641F40; }
+    .btn-primary:focus-visible, .btn-secondary:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid #7A284F;
+      outline-offset: 3px;
+    }
+    .btn-primary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: #7A284F;
+      border: 1px solid #7A284F;
+    }
+    .btn-secondary:hover { background: #FFF8FB; }
+    .report-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .face-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #111;
+      aspect-ratio: 3 / 4;
+    }
+    .face-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+    .face-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .face-labels { position: absolute; inset: 0; pointer-events: none; }
+    .zone-pill {
+      position: absolute;
+      max-width: 132px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(40, 35, 41, 0.9);
+      color: #fff;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+    .zone-num {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 0 0 2px #fff;
+    }
+    .compare-split {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 3 / 4;
+    }
+    .compare-split .pane {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .compare-split .pane img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .compare-split .pane-left { clip-path: inset(0 50% 0 0); }
+    .compare-split .pane-right { clip-path: inset(0 0 0 50%); }
+    .compare-split .divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #fff;
+    }
+    .step-no {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #282329;
+      color: #fff;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 1279px) {
+      .max-w-content { padding-left: 40px; padding-right: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="./app.js?v=15"></script>
+</body>
+</html>
